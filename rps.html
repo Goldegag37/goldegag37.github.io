@@ -1,0 +1,166 @@
+<html>
+  <head>
+    <style>
+        p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(32, 32, 32);
+        }
+        @keyframes shakex {
+        0% { transform: translateX(0); }
+        10% { transform: translateX(-1px); transform: translateY(1px) }
+        20% { transform: translateX(1px);transform: translateY(-1px); }
+        30% { transform: translateX(-1px); transform: translateY(1px) }
+        40% { transform: translateX(1px);transform: translateY(-1px); }
+        50% { transform: translateX(-1px); transform: translateY(1px) }
+        60% { transform: translateX(1px);transform: translateY(-1px); }
+        70% { transform: translateX(-1px); transform: translateY(1px) }
+        80% { transform: translateX(1px);transform: translateY(-1px); }
+        90% { transform: translateX(-1px); transform: translateY(1px) }
+        100% { transform: translateX(0); }
+      }
+      @keyframes bounce {
+        0% { size-adjust: 110%; }
+        10% { size-adjust: 109%; }
+        20% { size-adjust: 108%;}
+        30% { size-adjust: 107%;}
+        40% { size-adjust: 106%;}
+        50% { size-adjust: 105%;}
+        60% { size-adjust: 104%;}
+        70% { size-adjust: 103%;}
+        80% { size-adjust: 102%;}
+        90% { size-adjust: 101%;}
+        100%{ size-adjust: 101%;} 
+    }
+        html{
+            background-color: grey;
+        }
+        button{
+            background-color: rgb(76, 76, 76);
+            border-color: rgb(42, 42, 42);
+            border: solid;
+            border-width: 2px;
+            border-radius: 50px;
+            font-size: 30;
+            height: 60;
+            width: 60;
+            align-items: baseline;
+            align-self: baseline;
+            transition: all .1s;
+            transition: transform 0.2s ease-in-out;
+        }
+        button.sissors:hover{
+            background-color: rgb(60, 60, 60);
+            transform: rotate(-90deg);
+        }
+        button.rock:hover{
+            background-color: rgb(60, 60, 60);
+            animation: shakex 0.5s;
+        }
+        button.paper:hover{
+            background-color: rgb(60, 60, 60);
+            transform: scale(1.05);
+        }
+        .stats{
+            background-color: rgb(80, 80, 80);
+            padding: 1;
+            padding-left: 20;
+            border-radius: 20px;
+            margin-top: 10;
+        }
+    </style>
+    <title>Rock Paper Sissors</title>
+  </head>
+  <body>
+    
+    <p>Rock Paper Sissors</p>
+    <button class="rock" onclick="gameNum = gameNum + 1 ;userChoice = 'Rock'; random_choice()">🪨</button>
+    <button class="paper" onclick="gameNum = gameNum + 1 ;userChoice = 'Paper'; random_choice()">📰</button>
+    <button class="sissors" onclick="gameNum = gameNum + 1 ;userChoice = 'Sissors' ;random_choice()">✂️</button>
+    <div class="stats">
+    <p id="gameNum">Game: 1</p>
+    <p id="userChoice">User: Null</p>
+    <p id="cpuString">Computer: Null</p>
+    <p id="result">Result: Null</p>
+    <p>Scores</p>
+    <p id="userScore">User: 0</p>
+    <p id="cpuScore">Computer: 0</p>
+    </div>
+    <script>
+        let gameNum = 0;
+        let userScore = 0;
+        let cpuScore = 0;
+        function random_choice(){
+            const cpu_choice = Math.random();
+            console.log('')
+        console.log('Game: ' + gameNum)
+            console.log('U:' + userChoice);
+
+            if (cpu_choice >= 0 && cpu_choice < 1/3){
+            console.log('C:Rock');
+            cpuString = 'Rock';
+            }
+            if (cpu_choice >= 1/3 && cpu_choice < 2/3){
+            console.log('C:Paper');
+            cpuString = 'Paper';
+            }
+            if (cpu_choice >= 2/3 && cpu_choice <= 1){
+            console.log('C:Sissors');
+            cpuString = 'Sissors';
+            }
+            if (cpuString === 'Rock'){
+                    if (userChoice === 'Rock') {
+                    result = 'Tie'
+                    }
+                    if (userChoice === 'Sissors') {
+                    result = 'Rock crushes Sissors'
+                    cpuScore = cpuScore + 1
+                    }
+                    if (userChoice === 'Paper') {
+                    result = 'Paper covers Rock'
+                    userScore = userScore + 1
+                    }
+                }else{
+                    if (cpuString === 'Sissors'){
+                        if (userChoice === 'Sissors') {
+                    result = 'Tie'
+                    }
+                        if (userChoice === 'Rock') {
+                        result = 'Rock crushes Sissors'
+                        userScore = userScore + 1
+                        }
+                        if (userChoice === 'Paper') {
+                        result = 'Sissors cut Paper'
+                        cpuScore = cpuScore + 1
+                        }
+                    }else{
+                        if (cpuString === 'Paper'){
+                            if (userChoice === 'Paper') {
+                            result = 'Tie'
+                            }
+                            if (userChoice === 'Sissors') {
+                            result = 'Sissors cut Paper'
+                            cpuScore = cpuScore + 1
+                            }
+                            if (userChoice === 'Rock') {
+                            result = 'Paper covers Rock'
+                            userScore = userScore + 1
+                        }
+            }
+            }    
+        }
+        
+        console.log('R:' + result)
+        console.log('U: ' + userScore)
+        console.log('C: ' + cpuScore)
+
+        document.getElementById("userChoice").innerHTML = 'User: ' + userChoice;
+        document.getElementById("cpuString").innerHTML = 'Computer: ' + cpuString;
+        document.getElementById("result").innerHTML = 'Result: ' + result;
+        document.getElementById("userScore").innerHTML = 'User: ' + userScore + ' points';
+        document.getElementById("cpuScore").innerHTML = 'Computer: ' + cpuScore + ' points';
+        document.getElementById("gameNum").innerHTML = 'Game: ' + gameNum;
+
+        }
+    </script>
+  </body>
+</html>
