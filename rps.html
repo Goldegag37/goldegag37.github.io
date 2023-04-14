@@ -47,9 +47,14 @@
             align-self: baseline;
             transition: all .1s;
             transition: transform 0.2s ease-in-out;
+            cursor: pointer;
         }
         button:hover{
           background-color: rgb(60, 60, 60);
+          transform: scale(1.08);
+        }
+        .rock-span {
+          font-size: x-large;
         }
         /*code dissabled
             transform: rotate(-90deg);
@@ -76,16 +81,15 @@
   <body>
     
     <p>Rock Paper Sissors</p>
-    <button class="rock" onclick="gameNum = gameNum + 1 ;userChoice = 'Rock'; random_choice()">✊</button>
+    <button class="rock" onclick="gameNum = gameNum + 1 ;userChoice = 'Rock'; random_choice()"><span class="rock-span">✊</span></button>
     <button class="paper" onclick="gameNum = gameNum + 1 ;userChoice = 'Paper'; random_choice()">✋</button>
     <button class="sissors" onclick="gameNum = gameNum + 1 ;userChoice = 'Sissors' ;random_choice()">✌</button>
     <div class="stats">
-    <p id="gameNum">Game: 1</p>
-    <p id="userChoice">User: Null</p>
-    <p id="cpuString">Computer: Null</p>
-    <p id="result">Result: Null</p>
+    <p id="gameNum">Round: 1</p>
+    <p id="userChoice">User: [waiting for input]</p>
+    <p id="cpuString">Computer: [waiting for input]</p>
+    <p id="result">Result: [waiting for input]</p>
       <hr>
-    <p>Scores</p>
     <p id="userScore">User: 0</p>
     <p id="cpuScore">Computer: 0</p>
     </div>
