@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="cont" style="border: #333 solid; width: fit-content; padding: 0px; height: 310px;">
+        <img onload="console.log('img loaded')" id="refresh" src="https://lipsum.app/random/1000x700/" alt="placeholder"
+            style='cursor: default; height: 300px; border-radius: 5px; box-shadow: 0px 0px 0px 2px #333; margin: 5px;'>
+    </div>
+    <br>
+    <div style="border: #333 solid; width: fit-content; padding: 5px;">
+    <span id="w">width:</span>
+    <input oninput="range1Output.value = wi.value;  document.getElementById('cont').style.width = document.getElementById('wi').value;" style="height: 9px; width: 200px;" step="50" id="wi" type="range"
+        value="1000" min="100" max="5000">
+    <output id="range1Output">1000</output>
+
+    <br>
+    <br>
+
+    <span id="h">height:</span>
+        <input oninput="range2Output.value = hi.value; " style="height: 9px; width: 200px" step="50" id="hi" type="range"
+        value="700" max="5000" min="100">
+    <output id="range2Output">700</output>
+</div>
+<div style="border: #333 solid; width: fit-content; padding: 0px;">
+<button class="refresh" onclick="refresh();" style="writing-mode: vertical-lr; cursor: pointer; width: auto; margin: 5px; border: #333 solid 2px; border-radius: 3px;">Reload</button>
+</div>
+
+<hr>
+<a href="https://goldegag37.github.io/Pages/">Home Page</a>
+
+    <script>
+        let hei;
+        let wid;
+        let el;
+
+        function refresh() {
+            var wid = new
+                Number(document.getElementById('hi').value);
+            var hei = new
+                Number(document.getElementById('wi').value);
+            document.getElementById('cont').style.width = document.getElementById('wi').value;
+
+            var sc = 'https://lipsum.app/random/' + hei + 'x' + wid + '/';
+            var timestamp = new Date().getTime();
+
+            var el = document.getElementById("refresh");
+
+            el.src = sc + '/?=' + timestamp;
+
+            console.log('')
+        }
+    </script>
+</body>
+
+</html>
