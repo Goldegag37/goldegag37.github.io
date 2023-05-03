@@ -6,15 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rImg</title>
+    
+    <style>
+    div{
+        border: #333 solid;
+        width: fit-content;
+        padding: 5px;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="cont" style="border: #333 solid; width: fit-content; padding: 0px; height: 310px;">
+    <div id="cont" style="padding: 0px; height: 310px;">
         <img onload="console.log('img loaded')" id="refresh" src="https://lipsum.app/random/1000x700/" alt="placeholder"
             style='cursor: default; height: 300px; border-radius: 5px; box-shadow: 0px 0px 0px 2px #333; margin: 5px;'>
     </div>
     <br>
-    <div style="border: #333 solid; width: fit-content; padding: 5px;">
+    <div>
     <span id="w">width:</span>
     <input oninput="range1Output.value = wi.value;  document.getElementById('cont').style.width = document.getElementById('wi').value;" style="height: 9px; width: 200px;" step="50" id="wi" type="range"
         value="1000" min="100" max="5000">
@@ -28,7 +36,7 @@
         value="700" max="5000" min="100">
     <output id="range2Output">700</output>
 </div>
-<div style="border: #333 solid; width: fit-content; padding: 0px;">
+<div style="padding: 0px;">
 <button class="refresh" onclick="refresh();" style="writing-mode: vertical-lr; cursor: pointer; width: auto; margin: 5px; border: #333 solid 2px; border-radius: 3px;">Reload</button>
 </div>
 <br><br>
