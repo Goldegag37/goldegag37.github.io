@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body{
+            background-color: #333;
+            color: #fff;
+            font-family: serif;
+        }
+        header {
+            background-color: rgb(175, 107, 17);
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin: auto;
+            align-self: center;
+            width: 80%;
+            height: fit-content;
+            margin-bottom: 0px;
+        }
+        .container-0 {
+            border: none #333;
+            border-top: solid 2px;
+            align-items: center;
+            margin: auto;
+            margin-top: 0px;
+            align-self: center;
+            width: 80%;
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: rgb(189, 129, 51);
+        }
+        .container-1 {
+            border: none #333;
+            border-top: solid 2px;
+            align-items: center;
+            margin: auto;
+            margin-top: 0px;
+            align-self: center;
+            width: 80%;
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: rgb(175, 111, 17);
+        }
+        .container-2 {
+            border: none #333;
+            border-top: solid 2px;
+            align-items: center;
+            margin: auto;
+            margin-top: 0px;
+            align-self: center;
+            width: 80%;
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: rgb(189, 129, 51);
+        }
+        .container-3 {
+            border: none #333;
+            border-top: solid 2px;
+            align-items: center;
+            margin: auto;
+            margin-top: 0px;
+            align-self: center;
+            width: 80%;
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: rgb(175, 107, 17);
+        }
+        .container-4 {
+            border: none #333;
+            border-top: solid 2px;
+            align-items: center;
+            margin: auto;
+            margin-top: 0px;
+            align-self: center;
+            width: 80%;
+            padding: 5px;
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: rgb(189, 129, 51);
+        }
+        img{
+            border-radius: 5px;
+            box-shadow: 0 0 0 2px #333;
+        }
+        .refresh{
+            margin-top: 2px;
+            position: static;
+            writing-mode: vertical-lr;
+            cursor: pointer;
+            user-select: none;
+        }
+        .copy{
+            font-family: arial;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>dis parturient</h1>
+        <p>montes nascetur ridiculus</p>
+    </header>
+    <div class="container-0">
+        <h1>Lorem ipsum</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Laoreet suspendisse interdum consectetur libero id. Nunc consequat interdum varius sit
+            amet. Dolor magna eget est lorem ipsum dolor sit amet. Enim tortor at auctor urna nunc id cursus.
+        </p>
+    </div>
+    <div class="container-1">
+        <h1>
+            Nulla facilisi
+        </h1>
+        <p>
+            Semper auctor neque vitae tempus quam pellentesque nec. <b>Imperdiet sed euismod</b> nisi porta lorem mollis. Aliquet lectus proin nibh nisl condimentum id. Vel pretium lectus quam id leo in vitae. Lacus vestibulum sed arcu non. <i>Eu lobortis elementum</i> nibh tellus. Ipsum dolor sit amet consectetur <u>adipiscing elit</u>. Semper quis lectus nulla at volutpat. Pellentesque massa placerat duis ultricies lacus sed. Lectus mauris ultrices eros in cursus turpis massa tincidunt. Placerat orci nulla pellentesque dignissim enim sit. Potenti nullam ac tortor vitae purus faucibus.
+        </p>
+    </div>
+    <div class="container-2">
+        <div onload="document.getElementsByClassName('refresh').style.cursor='pointer';" style="cursor: default; display: inline-block;height: 120; width: 120;"><img id="refresh" src="https://lipsum.app/random/1000x1000" alt="placeholder" style='cursor: default; display: inline-block; max-width: 120px; vertical-align: top;'></div>
+        <b class="refresh" onclick="refresh();" >↻</b>
+    <h1 style="display: inline-block; width:60%; vertical-align: top;">Lorem ipsum dolor sit amet</h1>
+    </div>
+    <div class="container-3">
+        <h1>
+            Excepteur sint
+        </h1>
+        <p>
+            Elit pellentesque habitant morbi tristique senectus et netus et. In eu mi bibendum neque egestas congue quisque egestas. Non odio euismod lacinia at quis risus sed vulputate. Nisi porta lorem mollis aliquam. Aliquam ut porttitor leo a diam sollicitudin tempor.
+        </p>
+    </div>
+    <div class="container-4">
+        <h1>
+            Parturient montes
+        </h1>
+        <p>
+            Euismod quis viverra nibh cras pulvinar mattis nunc sed blandit.Mi tempus imperdiet nulla malesuada. Molestie ac feugiat sed lectus vestibulum.</p>
+    </div>
+    
+<hr>
+    <span class="copy">🄯 Gage.G</span>
+    <script>
+        var el = document.getElementById("refresh");
+        var timestamp = new Date().getTime();
+        var sc = document.getElementById("refresh").src;
+function refresh() {
+    var timestamp = new Date().getTime();
+
+     var el = document.getElementById("refresh");
+
+     el.src = sc + '/?=' + timestamp;
+    
+     console.log('')
+     console.log('refreshed ' + el.src)
+     document.getElementById('refresh').style.display='inline-block';
+}
+    </script>
+</body>
+
+</html>
