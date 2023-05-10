@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DART</title>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+        body {
+            padding: 5rem;
+            font-size: 22px;
+            font-family: 'Poppins', sans-serif;
+            background: black;
+            color: white;
+            overflow-x: hidden;
+
+            display: grid;
+            grid-template-columns: 80% auto;
+        }
+
+        header {
+            text-align: center;
+            grid-row: 1;
+            grid-column: 1/3;
+        }
+
+        main {
+            grid-row: 2;
+            grid-column: 1;
+        }
+
+        aside {
+            grid-row: 2;
+            grid-column: 2;
+            background: #333;
+            padding: 1rem;
+        }
+
+        #boom {
+            position: absolute;
+            top: 20%;
+            right: 20%;
+            width: 200px;
+            height: 200px;
+            background-image: url('https://media4.giphy.com/media/VzYcE4FrtkOhhgirkN/giphy.gif?cid=5a38a5a280eadgcdsba2le4h2s5auaduq7wgpawyn86wbs61&amp;ep=v1_stickers_search&amp;rid=giphy.gif&amp;ct=s');
+            background-size: cover;
+            opacity: 0;
+            animation: crash 6s linear 5s forwards;
+        }
+
+        body {
+            animation: break 6s ease-in-out 5s forwards;
+        }
+
+        @keyframes break {
+            50% {
+                rotate: 0deg;
+                color: white;
+            }
+
+            52% {
+                rotate: 1deg;
+                color: red;
+            }
+
+            54% {
+                rotate: -1deg;
+            }
+
+            55% {
+                rotate: 2deg;
+            }
+
+            58% {
+                rotate: -2deg;
+            }
+
+            60% {
+                rotate: 6deg;
+                color: white;
+            }
+
+            100% {
+                rotate: 6deg;
+            }
+        }
+
+
+        @keyframes crash {
+            0% {
+                opacity: 100%;
+                translate: -100vw;
+                background-image: url('https://media4.giphy.com/media/kDQtmI6uSjwN2qR70f/giphy.gif?cid=5a38a5a2grai9svin8pju3yj0d8bmbbuezg1dkqms8ok7kfs&amp;ep=v1_stickers_search&amp;rid=giphy.gif&amp;ct=s')
+            }
+
+            49% {
+                background-image: url('https://media4.giphy.com/media/kDQtmI6uSjwN2qR70f/giphy.gif?cid=5a38a5a2grai9svin8pju3yj0d8bmbbuezg1dkqms8ok7kfs&amp;ep=v1_stickers_search&amp;rid=giphy.gif&amp;ct=s')
+            }
+
+            50% {
+                translate: 0;
+                background-image: url('https://media4.giphy.com/media/VzYcE4FrtkOhhgirkN/giphy.gif?cid=5a38a5a280eadgcdsba2le4h2s5auaduq7wgpawyn86wbs61&amp;ep=v1_stickers_search&amp;rid=giphy.gif&amp;ct=s');
+            }
+
+            60% {
+                background-image: url('https://media4.giphy.com/media/VzYcE4FrtkOhhgirkN/giphy.gif?cid=5a38a5a280eadgcdsba2le4h2s5auaduq7wgpawyn86wbs61&amp;ep=v1_stickers_search&amp;rid=giphy.gif&amp;ct=s');
+            }
+
+            61% {
+                opacity: 100%;
+            }
+
+            62% {
+                opacity: 0%;
+            }
+
+            100% {
+                opacity: 0%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+
+        </h1>
+    </header>
+    <main>
+        <h1>D</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, minima. Asperiores repudiandae ut non quod
+            corporis eveniet hic nostrum obcaecati architecto assumenda laborum a, iste dolores consectetur ea, eligendi
+            deserunt!
+        </p>
+        <h1>I</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi corporis suscipit nisi consectetur, vero
+            totam adipisci, magnam nobis earum eaque tempore voluptatibus rem ipsa quaerat ducimus debitis error fugiat
+            id.
+        </p>
+        <h1>M</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus odit, dolore exercitationem assumenda
+            officiis iure ad doloribus debitis, soluta ullam ut qui amet neque nostrum sed voluptates perspiciatis
+            minima magni.
+        </p>
+        <h1>P</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi mollitia ut sint dolor quisquam tempora id
+            illo distinctio! Minima asperiores deserunt veniam amet hic id porro harum ad, dolorum perferendis?
+        </p>
+    </main>
+    <aside>
+        <ul>
+            <li>
+                <h1>Sidebar</h1>
+            </li>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </aside>
+
+    <div id="boom"></div>
+</body>
+
+</html>
