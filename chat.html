@@ -116,7 +116,7 @@
         const index = members.findIndex(member => member.id === id);
         members.splice(index, 1);
         updateMembersDOM();
-        addMessageToListDOM("has left the room", member)
+        addMessageToListDOM("has left the room", "someone")
       });
     
       room.on('data', (text, member) => {
