@@ -175,7 +175,8 @@
       });
     }
     
-    function createMemberElement(member) {
+    function createMemberElement(member)
+    if name = "SERVER" {return("SERVER")
       const { name, color } = member.clientData;
       const el = document.createElement('div');
       el.appendChild(document.createTextNode(name));
