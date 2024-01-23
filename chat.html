@@ -72,13 +72,14 @@
   <div class="link">
     <a href="https://goldegag37.github.io/">Home Page</a>
   </div>
-  <script>// PS! Replace this with your own channel ID
-    // If you use this channel ID your app will stop working in the future
+  <script>
     const CLIENT_ID = 'Q9jDU3Pi4q10BUcF';
-    
+    const dispName = getRandomName();
+    const prefixtest = "you are "
+    console.log(prefixtest.concat(dispName))
     const drone = new ScaleDrone(CLIENT_ID, {
-      data: { // Will be sent out as clientData via events
-        name: getRandomName(),
+      data: {
+        name: dispName,
         color: getRandomColor(),
       },
     });
