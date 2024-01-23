@@ -78,7 +78,7 @@
     
     const drone = new ScaleDrone(CLIENT_ID, {
       data: { // Will be sent out as clientData via events
-        name: prompt('type your display name',getRandomName()),
+        name: getRandomName(),
         color: getRandomColor(),
       },
     });
