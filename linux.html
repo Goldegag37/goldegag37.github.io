@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux app recomendations</title>
+    <style>
+        body {
+            background-color: #999;
+        }
+
+        pre {
+            background-color: gray;
+            width: fit-content;
+            margin: 5px;
+            padding: 2px;
+            border-radius: 4px;
+        }
+
+        summary>* {
+            margin: 10px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <p>just some recomendations i have for good linux apps</p>
+    <details>
+        <summary>Screen Savers</summary>
+        <hr>
+        1.
+        <a href="https://github.com/pipeseroni/pipes.sh" target="_blank">pipes.sh</a><span>: a screensaver showing a
+            line randomly
+            moving around the screen, leaving a trail behind it</span>
+        <br><br>
+        <details>
+            <summary>Installation</summary>
+            <br>
+            <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/pipeseroni/pipes.sh/blob/master/pipes.sh"
+                target="_blank">just download and run</a>
+            <br>
+            or if you use homebrew:
+            <pre>brew install pipes-sh</pre>
+            dependencies: ncurses (for tput)
+            <pre>sudo apt-get install libncurses5-dev libncursesw5-dev || sudo yum install ncurses-devel || sudo dnf install ncurses-devel</pre>
+        </details>
+        <hr><!---->
+        2.
+        <a href="https://github.com/abishekvashok/cmatrix" target="_blank">cmatrix</a><span>: a screensaver showing a
+            marix likeanimation</span>
+        <br><br>
+        to install: see the github
+        <br><br>
+        <details>
+            <summary>gif of cmatrix</summary>
+            <img src="https://github.com/abishekvashok/cmatrix/blob/master/data/img/capture_orig.gif?raw=true"
+                alt="gif of cmatrix">
+        </details>
+        <hr>
+        3.
+        <a href="https://github.com/rgoring/asciiquarium" target="_blank">asciiquarium</a><span>: a screensaver showing
+            an
+            aquarium</span>
+        <br><br>
+        <details>
+            <summary>Installation</summary>
+            Fedora:
+            <pre>sudo dnf install asciiquarium</pre>
+            <br>
+            Arch Linux:
+            <pre>sudo pacman -S asciiquarium</pre>
+            <br>
+            PPA:
+            <pre>sudo add-apt-repository ppa:ytvwld/asciiquariumbr<br>sudo apt update<br>sudo apt install asciiquarium</pre>
+        </details>
+        <br>
+        <details>
+            <summary>gif of asciiquarium</summary>
+            <img src="https://opensource.com/sites/default/files/uploads/linux-toy-asciiquarium-animated.gif"
+                alt="gif of asciiquarium">
+        </details>
+        <hr>
+    </details>
+    <details>
+        <summary>Tools</summary>
+        <span>1.ffmpeg: a popular file conversion tool.</span>
+        <details>
+            <summary>to install:</summary>
+            <a href="https://www.hostinger.com/tutorials/how-to-install-ffmpeg#h-installing-ffmpeg-on-ubuntu">Ubuntu
+                18.04</a>:
+            <pre>
+            sudo apt-get install software-properties-common; <br>
+            sudo add-apt-repository ppa:mc3man/trusty-media; <br>
+            sudo apt-get update; <br>
+            sudo apt-get dist-upgrade; <br>
+            sudo apt-get install ffmpeg
+            </pre><br>
+            Debian 9 & Ubuntu 20.04:
+            <pre>sudo apt install ffmpeg</pre><br>
+            <a href="https://www.hostinger.com/tutorials/how-to-install-ffmpeg#Debian8">Debian 8</a>:
+            run
+            <pre>sudo vi /etc/apt/source.list</pre>
+            and append
+            <pre>
+            # deb-multimedia <br>
+            deb http://www.deb-multimedia.org jessie main non-free <br>
+            deb-src http://www.deb-multimedia.org jessie main non-free
+            </pre>
+            Save the file by pressing ESC and close the file by pressing : and q
+            then run
+            <pre>
+                sudo apt update <br>
+                sudo apt install deb-multimedia-keyring <br>
+                sudo apt update <br>
+                sudo apt install ffmpeg
+            </pre>
+        </details>
+        <hr>
+        <span>2.inkscape: a useful coreldraw alternative.</span>
+        <details>
+            <summary><a href="https://wiki.inkscape.org/wiki/index.php/Installing_Inkscape">to install:</a></summary>
+            Ubuntu & Debian
+            <pre>
+            sudo apt-get update <br>
+            sudo apt-get install inkscape
+            </pre><br>
+            Ubuntu (if above didnt work)
+            <pre>
+                sudo add-apt-repository universe <br>
+                sudo add-apt-repository ppa:inkscape.dev/stable <br>
+                sudo apt-get update <br>
+                sudo apt install inkscape   
+            </pre>
+        </details>
+        <hr>
+        <span>3.gimp: GNU Image Manipulation Program.</span>
+        <details><summary>to install:</summary>
+            Ubuntu/Debian: 
+            <pre>sudo apt install gimp</pre>
+            Fedora: 
+            <pre>sudo yum install gimp</pre>
+            CentOS/RedHat: 
+            <pre>sudo dnf install gimp</pre>
+            Arch: 
+            <pre>sudo pacman -S gimp</pre>
+        </details>
+        <hr>
+        <span>4.flatpak: a package manager.</span>
+        <details><summary>to install:</summary>
+        <a href="https://flatpak.org/setup/">visit the official site</a>
+        </details>
+        <hr>
+        <span>5.fish: the friendly interactive shell</span>
+        <details><summary>to install:</summary>
+        <a href="https://fishshell.com">visit the official</a>
+        </details>
+        <hr>
+    </details>
+</body>
+
+</html>
