@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image to Data URI</title>
+</head>
+<body>
+  <h1>Upload an image to get its Data URI</h1>
+  <span style="font-size: 0.6em">warning: website may lag if the image is too large</span><br><br>
+  <span>upload image:</span>
+  <br>
+  <input type="file" id="imageUpload" accept="image/*">
+  <br><br>
+  <code id="dataURI" style="font-size: 0.7em ;background-color: #999; white-space: nowrap; padding: 5px; border-radius: 2px">DataUri</code>
+  <br><br>
+  <button id="copyButton" disabled>Copy URI</button> 
+
+  <script>
+    const imageUpload = document.getElementById('imageUpload');
+    const dataURI = document.getElementById('dataURI');
+    const copyButton = document.getElementById('copyButton');
+
+    imageUpload.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        dataURI.textContent = e.target.result;
+        copyButton.disabled = false;
+      };
+
+      reader.readAsDataURL(file);
+    });
+
+    copyButton.addEventListener('click', () => {
+      navigator.clipboard.writeText(dataURI.textContent)
+        .then(() => {
+          console.log('Data URI copied to clipboard!');
+        })
+        .catch(err => {
+          console.error('Failed to copy: ', err);
+        });
+    });
+  </script>
+</body>
+</html>
