@@ -41,7 +41,7 @@
         <br>
         <button onclick="convertImage()">Convert</button>
         <button id="copyButton" onclick="copyToClipboard()">Copy</button>
-        <pre id="asciiOutput" contenteditable="false"></pre>
+        <pre id="output" contenteditable="false">this is a image to text converter for ourworldoftext.com (this is just a gui for <a href="https://pastebin.com/Pa64Frji">https://pastebin.com/Pa64Frji</a>)</pre>
     </div>
     
     <dialog id="Popup">
@@ -50,6 +50,7 @@
     </dialog>
 
     <script>
+        // this is [https://pastebin.com/Pa64Frji] ran through chatgpt, it just makes the stuff you copy
         function hex(dec) {
             dec = Math.floor(dec);
             return (dec < 16 ? "0" : "") + dec.toString(16);
@@ -85,11 +86,12 @@
                 document.getElementById('asciiOutput').textContent = str;
             };
         }
-
+        // the rest is for the page elements
+        
         function copyToClipboard() {
-            const asciiOutput = document.getElementById('asciiOutput');
+            const Output = document.getElementById('output');
             const range = document.createRange();
-            range.selectNodeContents(asciiOutput);
+            range.selectNodeContents(Output);
             const selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(range);
