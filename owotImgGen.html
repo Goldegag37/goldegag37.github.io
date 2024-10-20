@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to ASCII Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        pre {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            user-select: all; /* Allows text to be selected */
+        }
+        #copyButton {
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image to ASCII Converter</h1>
+        <input type="text" id="imageURL" placeholder="Enter Image URL" size="50">
+        <input type="number" id="scale" placeholder="Scale (e.g., 1)" value="1">
+        <br>
+        <button onclick="convertImage()">Convert</button>
+        <br>
+        <button id="copyButton" onclick="copyToClipboard()">Copy</button>
+        <pre id="asciiOutput" contenteditable="false"></pre>
+    </div>
+    
+    <dialog id="Popup">
+        <p>Text copied to clipboard</p>
+        <button onclick="document.getElementById('Popup').close()">Close</button>
+    </dialog>
+
+    <script>
+        function hex(dec) {
+            dec = Math.floor(dec);
+            return (dec < 16 ? "0" : "") + dec.toString(16);
+        }
+
+        function convertImage() {
+            const url = document.getElementById('imageURL').value;
+            const scale = parseFloat(document.getElementById('scale').value);
+            const img = new Image();
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+
+            img.crossOrigin = "Anonymous";
+            img.src = url;
+
+            img.onload = () => {
+                canvas.width = img.width / 10 * scale;
+                canvas.height = img.height / 18 * scale;
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+                let str = "";
+                
+                for (let i = 0; i < canvas.height * canvas.width * 4; i += canvas.width * 4) {
+                    for (let j = 0; j < canvas.width * 4; j += 4) {
+                        let alpha = data[i + j + 3] / 255;
+                        str += "\033F" + hex(data[i + j] * alpha + 255 - data[i + j + 3])
+                                + hex(data[i + j + 1] * alpha + 255 - data[i + j + 3])
+                                + hex(data[i + j + 2] * alpha + 255 - data[i + j + 3]) + "█";
+                    }
+                    str += "\n";
+                }
+                
+                document.getElementById('asciiOutput').textContent = str;
+            };
+        }
+
+        function copyToClipboard() {
+            const asciiOutput = document.getElementById('asciiOutput');
+            const range = document.createRange();
+            range.selectNodeContents(asciiOutput);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            try {
+                document.execCommand('copy');
+                document.getElementById('Popup').showModal()
+            } catch (err) {
+                alert('Copy failed.');
+            }
+
+            // Deselect text after copying
+            selection.removeAllRanges();
+        }
+    </script>
+</body>
+</html>
